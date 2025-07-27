@@ -17,7 +17,6 @@
             using (var httpClient = new HttpClient())
             {
                 var response = await httpClient.PostAsync(url, content).ConfigureAwait(false);
-
                 response.EnsureSuccessStatusCode();
                 return await response.Content.ReadAsStringAsync();
             }

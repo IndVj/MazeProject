@@ -1,4 +1,6 @@
-﻿using MazeGuidanceSolution.Core.Interfaces;
+﻿using System.Text.Json;
+using MazeGuidanceSolution.Core.Entities;
+using MazeGuidanceSolution.Core.Interfaces;
 
 namespace MazeGuidanceSolution.Core.UseCases
 {
@@ -9,14 +11,18 @@ namespace MazeGuidanceSolution.Core.UseCases
         {
             _mazeApiService = mazeApiService;
         }
-        public async Task<string> ExecuteAsync(string playerName)
+        public async Task<StartGameApiResponse> ExecuteAsync(string playerName)
         {
             if (string.IsNullOrWhiteSpace(playerName))
             {
                 throw new ArgumentException("Player name cannot be null or empty.", nameof(playerName));
             }
-            return await _mazeApiService.StartGamePost(playerName);
-        }
 
+            string response = await _mazeApiService.StartGamePost(playerName);
+
+
+            return JsonSerializer.Deserialize<StartGameApiResponse>(response)
+                   ?? throw new InvalidOperationException("StartGame: Failed to deserialize the response.");
+        }
     }
 }

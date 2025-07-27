@@ -30,9 +30,12 @@ class Program
             var mazeApiService = provider.GetRequiredService<IMazeApiService>();
 
             var startGameUseCase = new StartGame(mazeApiService);
-            var gameDetails = await startGameUseCase.ExecuteAsync(playerName);
+            var startGameResponse = await startGameUseCase.ExecuteAsync(playerName);
 
-           Console.WriteLine("Game details: " + gameDetails);
+            var discoverPositionUseCase = new DiscoverPositions(mazeApiService);
+            var discoverPositionsResponse = await discoverPositionUseCase.ExecuteAsync(startGameResponse.UrlDiscover);
+
+
         }
         catch (Exception ex)
         {

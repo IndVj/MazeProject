@@ -17,12 +17,22 @@ namespace MazeGuidanceSolution.Infrastructure
         {
             var url = $"{_baseUrl}/start-game/";
 
-            var formData = new FormUrlEncodedContent(new[]
-            {
+            var formData = new FormUrlEncodedContent(
+            [
                  new KeyValuePair<string, string>("player", "VJ")
-            });
+            ]);
 
             return await HttpHelper.PostAsync(url, formData);
+        }
+
+        public async Task<string> DiscoverPositionsGet(string discoverUrl)
+        {
+            if (string.IsNullOrWhiteSpace(discoverUrl))
+            {
+                throw new ArgumentException("DiscoverUrl name cannot be null or empty.", nameof(discoverUrl));
+            }
+
+            return await HttpHelper.GetAsync(discoverUrl);
         }
 
     }
