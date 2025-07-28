@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36212.18 d17.14
+VisualStudioVersion = 17.14.36212.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeGuidanceSolution", "MazeGuidanceSolution.csproj", "{33EB8C74-ECF3-4C93-B303-1804234B4B96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeGuidanceSolution.Tests", "..\MazeGuidanceSolution.Tests\MazeGuidanceSolution.Tests.csproj", "{9B6E6675-2E31-411D-8694-34C7E323C267}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{33EB8C74-ECF3-4C93-B303-1804234B4B96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33EB8C74-ECF3-4C93-B303-1804234B4B96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33EB8C74-ECF3-4C93-B303-1804234B4B96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B6E6675-2E31-411D-8694-34C7E323C267}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B6E6675-2E31-411D-8694-34C7E323C267}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B6E6675-2E31-411D-8694-34C7E323C267}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B6E6675-2E31-411D-8694-34C7E323C267}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

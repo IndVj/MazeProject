@@ -33,7 +33,7 @@ namespace MazeGuidanceSolution.Core.UseCases
 
                     var discoverPositionsResponse = await discoverPositionUseCase.ExecuteAsync(startGameResponse.UrlDiscover);
 
-                    var positionToMove = GetBestPositionToNove(discoverPositionsResponse, visitedPaths);
+                    var positionToMove = GetBestPositionToMove(discoverPositionsResponse, visitedPaths);
 
                     if (positionToMove == null)
                     {
@@ -62,7 +62,7 @@ namespace MazeGuidanceSolution.Core.UseCases
             }
         }
 
-        private static DiscoverPositionResponse? GetBestPositionToNove(List<DiscoverPositionResponse> discoverPositionsResponse,
+        public static DiscoverPositionResponse? GetBestPositionToMove(List<DiscoverPositionResponse> discoverPositionsResponse,
                                                                    HashSet<(int x, int y)> visitedPaths)
         {
             var exit = discoverPositionsResponse.FirstOrDefault(p => p.Value == CellType.stop);
