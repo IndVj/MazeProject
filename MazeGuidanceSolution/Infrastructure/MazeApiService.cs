@@ -1,5 +1,4 @@
-﻿using System.Net.Http.Headers;
-using MazeGuidanceSolution.Core.Interfaces;
+﻿using MazeGuidanceSolution.Core.Interfaces;
 
 namespace MazeGuidanceSolution.Infrastructure
 {
@@ -18,9 +17,10 @@ namespace MazeGuidanceSolution.Infrastructure
             var url = $"{_baseUrl}/start-game/";
 
             var formData = new FormUrlEncodedContent(
-            [
-                 new KeyValuePair<string, string>("player", "VJ")
-            ]);
+            new[]
+            {
+                     new KeyValuePair<string, string>("player", playerName)
+            });
 
             return await HttpHelper.PostAsync(url, formData);
         }
@@ -35,5 +35,16 @@ namespace MazeGuidanceSolution.Infrastructure
             return await HttpHelper.GetAsync(discoverUrl);
         }
 
+        public async Task<string> MovePlayerPost(string moveURl, int x, int y)
+        {
+            var formData = new FormUrlEncodedContent(
+            new[]
+            {
+                     new KeyValuePair<string, string>("position_x", x.ToString()),
+                     new KeyValuePair<string, string>("position_y", y.ToString())
+            });
+
+            return await HttpHelper.PostAsync(moveURl, formData);
+        }
     }
 }

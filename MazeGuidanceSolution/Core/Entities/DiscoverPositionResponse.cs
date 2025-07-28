@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace MazeGuidanceSolution.Core.Entities
+﻿namespace MazeGuidanceSolution.Core.Entities
 {
 
     public class DiscoverPositionResponse

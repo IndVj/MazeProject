@@ -2,7 +2,7 @@
 
 namespace MazeGuidanceSolution.Core.Entities
 {
-    public class StartGameApiResponse
+    public class MovePlayerResponse
     {
         [JsonPropertyName("player")]
         public string? Player { get; set; }
